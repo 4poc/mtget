@@ -429,6 +429,9 @@ if re.match("^[0-9]+$", url_id):
 elif re.match("^http:", url_id):
     if verbose: print " [+] Proceed with URL: %s" % url_id
 
+    if "#" in url_id:
+        url_id = url_id.replace('#', '')
+
     # make sure flash is off:
     if "flash=" in url_id:
         url_id = re.sub('flash=on', 'flash=off', url_id)
